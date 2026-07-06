@@ -14,9 +14,27 @@ const AdminLoginPage = () => {
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError('');
-    setLoading(true);
+  e.preventDefault();
+  setError('');
+  setLoading(true);
+
+  try {
+    const result = await loginUser(email.trim(), password);
+
+    console.log('Login Result:', result);
+
+    if (result.success) {
+      navigate('/admin');
+    } else {
+      setError(result.error || 'Login failed.');
+    }
+  } catch (err) {
+    console.error('Login Error:', err);
+    setError(err.message || 'An unexpected error occurred.');
+  } finally {
+    setLoading(false);
+  }
+};
 
     const result = await loginUser(email, password);
 
