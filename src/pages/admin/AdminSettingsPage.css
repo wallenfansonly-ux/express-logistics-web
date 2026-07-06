@@ -1,0 +1,158 @@
+.settings-page {
+  animation: fadeIn var(--transition-normal);
+  max-width: 800px;
+}
+
+.settings-page .page-header {
+  margin-bottom: var(--spacing-6);
+}
+
+.settings-page .page-header h1 {
+  font-size: var(--font-size-2xl);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.save-message {
+  padding: var(--spacing-3) var(--spacing-4);
+  background-color: var(--success-50);
+  border-radius: var(--radius-md);
+  color: var(--success-700);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--spacing-6);
+  text-align: center;
+}
+
+.settings-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+}
+
+.settings-section {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-6);
+}
+
+.settings-section .section-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  margin-bottom: var(--spacing-6);
+  padding-bottom: var(--spacing-4);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.settings-section .section-header svg {
+  font-size: var(--font-size-xl);
+  color: var(--primary-600);
+}
+
+.settings-section h2 {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-4) 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.setting-item:last-child {
+  border-bottom: none;
+}
+
+.setting-item.toggle {
+  display: flex;
+}
+
+.setting-item label {
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+}
+
+.setting-item select {
+  padding: var(--spacing-2) var(--spacing-3);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-width: 200px;
+}
+
+.theme-options {
+  display: flex;
+  gap: var(--spacing-2);
+}
+
+.theme-option {
+  padding: var(--spacing-2) var(--spacing-4);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.theme-option.active {
+  background-color: var(--primary-600);
+  border-color: var(--primary-600);
+  color: white;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 26px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: var(--border-color);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+}
+
+.slider::before {
+  position: absolute;
+  content: '';
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+}
+
+.switch input:checked + .slider {
+  background-color: var(--primary-600);
+}
+
+.switch input:checked + .slider::before {
+  transform: translateX(22px);
+}
+
+.settings-actions {
+  margin-top: var(--spacing-6);
+  display: flex;
+  justify-content: flex-end;
+}

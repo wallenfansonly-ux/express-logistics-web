@@ -1,0 +1,159 @@
+.admin-shipments-page {
+  animation: fadeIn var(--transition-normal);
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-6);
+}
+
+.page-header h1 {
+  font-size: var(--font-size-2xl);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.filters-bar {
+  display: flex;
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-6);
+  flex-wrap: wrap;
+}
+
+.search-box {
+  position: relative;
+  flex: 1;
+  max-width: 400px;
+}
+
+.search-box .search-icon {
+  position: absolute;
+  left: var(--spacing-3);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-tertiary);
+}
+
+.search-box input {
+  width: 100%;
+  padding: var(--spacing-3) var(--spacing-3) var(--spacing-3) var(--spacing-10);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: var(--primary-500);
+}
+
+.filter-box {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  position: relative;
+}
+
+.filter-icon {
+  position: absolute;
+  left: var(--spacing-3);
+  color: var(--text-tertiary);
+}
+
+.filter-box select {
+  padding: var(--spacing-3) var(--spacing-3) var(--spacing-3) var(--spacing-10);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.shipments-table-container {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow-x: auto;
+}
+
+.shipments-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.shipments-table th,
+.shipments-table td {
+  padding: var(--spacing-4);
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.shipments-table th {
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  background-color: var(--bg-secondary);
+}
+
+.shipments-table td {
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+}
+
+.shipments-table tr:last-child td {
+  border-bottom: none;
+}
+
+.shipments-table tr:hover td {
+  background-color: var(--bg-secondary);
+}
+
+.actions-cell {
+  display: flex;
+  gap: var(--spacing-2);
+}
+
+.action-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.action-btn.view {
+  background-color: var(--info-50);
+  color: var(--info-700);
+}
+
+.action-btn.edit {
+  background-color: var(--warning-50);
+  color: var(--warning-700);
+}
+
+.action-btn.delete {
+  background-color: var(--danger-50);
+  color: var(--danger-700);
+}
+
+.action-btn:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .filters-bar {
+    flex-direction: column;
+  }
+
+  .search-box {
+    max-width: none;
+  }
+}

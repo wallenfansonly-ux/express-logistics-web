@@ -1,0 +1,97 @@
+.shipment-card {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-5);
+  transition: box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.shipment-card:hover {
+  box-shadow: 0 4px 12px var(--shadow-color);
+  transform: translateY(-2px);
+}
+
+.shipment-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-4);
+}
+
+.tracking-number {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  font-weight: 600;
+  color: var(--primary-600);
+  font-size: var(--font-size-sm);
+}
+
+.shipment-card-route {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  margin-bottom: var(--spacing-4);
+}
+
+.route-point {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-2);
+  flex: 1;
+}
+
+.route-icon {
+  color: var(--neutral-400);
+  font-size: var(--font-size-sm);
+  margin-top: var(--spacing-1);
+}
+
+.route-point.origin .route-icon {
+  color: var(--success-500);
+}
+
+.route-point.destination .route-icon {
+  color: var(--danger-500);
+}
+
+.route-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.route-label {
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.route-city {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.route-line {
+  flex: 0.5;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-300), var(--primary-200));
+  margin: var(--spacing-2) 0;
+}
+
+.shipment-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--spacing-3);
+  border-top: 1px solid var(--border-color);
+}
+
+.shipment-date {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+}

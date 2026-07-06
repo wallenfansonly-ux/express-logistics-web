@@ -1,0 +1,123 @@
+.customers-page {
+  animation: fadeIn var(--transition-normal);
+}
+
+.customers-page .page-header {
+  margin-bottom: var(--spacing-6);
+}
+
+.customers-page .page-header h1 {
+  font-size: var(--font-size-2xl);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.customers-page .filters-bar {
+  margin-bottom: var(--spacing-6);
+}
+
+.customers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-5);
+}
+
+.customer-card {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-5);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-4);
+  transition: box-shadow var(--transition-fast);
+}
+
+.customer-card:hover {
+  box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.customer-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background-color: var(--primary-600);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.customer-info {
+  flex: 1;
+}
+
+.customer-info h3 {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-2);
+}
+
+.customer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+  margin-bottom: var(--spacing-3);
+}
+
+.customer-contact span {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.customer-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.customer-stats .stat {
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+}
+
+.customer-stats .status-badge {
+  font-size: var(--font-size-xs);
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--radius-full);
+  font-weight: 500;
+}
+
+.customer-stats .status-badge.active {
+  background-color: var(--success-50);
+  color: var(--success-700);
+}
+
+.customer-stats .status-badge.inactive {
+  background-color: var(--neutral-200);
+  color: var(--neutral-600);
+}
+
+.customer-stats .status-badge.vip {
+  background-color: var(--warning-50);
+  color: var(--warning-700);
+}
+
+@media (max-width: 1024px) {
+  .customers-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .customers-grid {
+    grid-template-columns: 1fr;
+  }
+}
