@@ -149,4 +149,27 @@
     width: 100%;
     margin-top: var(--spacing-4);
   }
+.nav-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 12px 24px;
+
+  border-radius: 999px;
+
+  background: linear-gradient(135deg, #2563eb, #38bdf8);
+
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+
+  transition: all 0.3s ease;
+
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
+}
+
+.nav-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(37, 99, 235, 0.45);
 }
