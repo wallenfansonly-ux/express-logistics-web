@@ -4,7 +4,12 @@ import { useLanguage } from '../context';
 import { TrackingSearch, PageTransition } from '../components';
 import { FaPlane, FaWarehouse, FaGlobeAmericas, FaTruck, FaShieldAlt, FaClock, FaBox, FaShippingFast, FaQuoteLeft, FaStar, FaCheck } from 'react-icons/fa';
 import './HomePage.css';
-
+const assets = {
+  heroBg: '/images/hero-bg.webp',
+  plane: '/images/plane.png',
+  truck: '/images/truck.png',
+  worldMap: '/images/world-map.png',
+};
 // Animated counter component
 const AnimatedCounter = ({ value, suffix = '' }) => {
 const [count, setCount] = useState(0);
@@ -103,7 +108,35 @@ return (
 <section className="hero-full">
 
   <div className="hero-background">  <div className="world-map-overlay"></div>  
+<motion.img
+  src={assets.plane}
+  className="hero-plane"
+  alt="Express Logistics airplane"
+  initial={{ x: -100, opacity: 0 }}
+  animate={{ 
+    x: 100,
+    opacity: 1
+  }}
+  transition={{
+    duration: 2,
+    ease: "easeOut"
+  }}
+/>
 
+<motion.img
+  src={assets.truck}
+  className="hero-truck"
+  alt="Express Logistics truck"
+  initial={{ y: 50, opacity: 0 }}
+  animate={{
+    y: 0,
+    opacity: 1
+  }}
+  transition={{
+    duration: 1.5,
+    delay: 0.5
+  }}
+/>
 <div className="world-map">  
   <svg  
     viewBox="0 0 1200 600"  
@@ -169,24 +202,30 @@ return (
           animate={{ opacity: 1, y: 0 }}  
           transition={{ duration: 0.8, delay: 0.2 }}  
         >  
-          <h1>  
-            {heroTitle.split(' ').map((word, i) => (  
-              <motion.span  
-                key={i}  
-                initial={{ opacity: 0, y: 20 }}  
-                animate={{ opacity: 1, y: 0 }}  
-                transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}  
-              >  
-                {word}{' '}  
-              </motion.span>  
-            ))}  
-          </h1>  
+          <h1>
+  {heroTitle.split(' ').map((word, i) => (
+    <motion.span
+      key={i}
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 0.6,
+        delay: 0.3 + i * 0.12
+      }}
+      className={i === 0 ? "highlight-word" : ""}
+    >
+      {word}{' '}
+    </motion.span>
+  ))}
+</h1>
           <motion.p  
             initial={{ opacity: 0 }}  
             animate={{ opacity: 1 }}  
             transition={{ duration: 0.8, delay: 0.8 }}  
           >  
-            {heroSubtitle}  
+            {heroSubtitle || 
+"Fast, secure and reliable worldwide delivery solutions. Track your shipment anytime, anywhere."
+}
           </motion.p>  
         </motion.div>  
 
