@@ -5,10 +5,10 @@ import { TrackingSearch, PageTransition } from '../components';
 import { FaPlane, FaWarehouse, FaGlobeAmericas, FaTruck, FaShieldAlt, FaClock, FaBox, FaShippingFast, FaQuoteLeft, FaStar, FaCheck } from 'react-icons/fa';
 import './HomePage.css';
 const assets = {
-  heroBg: '/images/hero-bg.webp',
-  plane: '/images/plane.png',
-  truck: '/images/truck.png',
-  worldMap: '/images/world-map.png',
+  heroBg: '/images/logistics-hero-bg.webp',
+  plane: '/images/cargo-plane.png',
+  truck: '/images/express-truck.png',
+  worldMap: '/images/world-map-glow.png',
 };
 // Animated counter component
 const AnimatedCounter = ({ value, suffix = '' }) => {
