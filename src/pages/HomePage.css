@@ -1066,3 +1066,8 @@
   color: rgba(255,255,255,0.9);
   font-size: 1.2rem;
 }
+.tracking-box-icon {
+  font-size: 22px;
+  margin-left: 15px;
+  color: white;
+}
