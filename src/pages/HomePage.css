@@ -146,13 +146,16 @@
 .gradient-overlay {
   position: absolute;
   inset: 0;
-  z-index: 1;
-  background: linear-gradient(
-    135deg,
-    rgba(59,130,246,0.95) 0%,
-    rgba(30,64,175,0.9) 50%,
-    rgba(29,78,216,0.95) 100%
-  );
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(2, 12, 35, 0.95) 0%,
+      rgba(3, 20, 55, 0.75) 45%,
+      rgba(3, 20, 55, 0.25) 100%
+    );
+
+  z-index: 2;
 }
 
 
@@ -179,11 +182,11 @@
 /* Hero Content */
 .hero-content {
   position: relative;
-  z-index: 2;
-  text-align: center;
-  color: white;
-  padding: 0 var(--spacing-4);
-  max-width: 900px;
+  z-index: 4;
+
+  max-width: 650px;
+
+  padding-top: 120px;
 }
 
 .hero-text h1 {
@@ -1042,8 +1045,8 @@
   font-size: clamp(3rem, 6vw, 5rem);
   font-weight: 900;
   letter-spacing: -1px;
-}
-
+text-shadow:
+  0 10px 40px rgba(0,0,0,0.5);
 .brand-express {
   color: white;
 }
