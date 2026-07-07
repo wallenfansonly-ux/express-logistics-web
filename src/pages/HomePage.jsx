@@ -174,6 +174,11 @@ return (
   }}
 />
 
+</svg>
+</div>
+
+<div className="gradient-overlay"></div>
+
 <div className="gradient-overlay"></div>  
             {/* Animated vehicles */}  
             <motion.div  
@@ -199,38 +204,18 @@ return (
           animate={{ opacity: 1, y: 0 }}  
           transition={{ duration: 0.8, delay: 0.2 }}  
         >  
-          <h1<h1 className="hero-brand">
-  <span className="brand-express">
-    Express
-  </span>{' '}
-  <span className="brand-logistics">
-    Logistics
-  </span>
+          <h1 className="hero-brand">
+  <span className="brand-express">Express</span>{' '}
+  <span className="brand-logistics">Logistics</span>
 </h1>
-    <motion.span
-      key={i}
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{
-        duration: 0.6,
-        delay: 0.3 + i * 0.12
-      }}
-      className={i === 0 ? "highlight-word" : ""}
-    >
-      {word}{' '}
-    </motion.span>
-  ))}
-</h1>
-          <motion.p  
-            initial={{ opacity: 0 }}  
-            animate={{ opacity: 1 }}  
-            transition={{ duration: 0.8, delay: 0.8 }}  
-          >  
-            Delivering Excellence Across the Globe.
-"Fast, secure and reliable worldwide delivery solutions. Track your shipment anytime, anywhere."
-}
-          </motion.p>  
-        </motion.div>  
+
+<motion.p
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 0.8, delay: 0.8 }}
+>
+  Delivering Excellence Across the Globe.
+</motion.p>
 
         <motion.div  
           className="hero-search"  
@@ -273,30 +258,34 @@ return (
       </motion.div>  
     </section>  
 
-    {/* Tracking Section */}  
-    <section className="tracking-section" ref={trackRef}> 
-      <div className="container">  
-        <motion.h2  
-          initial={{ opacity: 0, y: 20 }}  
-          whileInView={{ opacity: 1, y: 0 }}  
-          viewport={{ once: true }}  
-          transition={{ duration: 0.5 }}  
-        >  
-          {<div className="tracking-title">
-  <span></span>
+    <section className="tracking-section" ref={trackRef}>
+  <div className="container">
 
-  <h2>
-    Track Your Shipment
-  </h2>
+    <div className="tracking-title">
+      <span></span>
 
-  <span></span>
-</div>
-          Real-time updates on your shipments
-        </motion.p>  
-        <TrackingSearch variant="standalone" />  
-        <p className="tracking-help">{trackingData.trackingHelp || ''}</p>  
-      </div>  
-    </section>  
+      <h2>Track Your Shipment</h2>
+
+      <span></span>
+    </div>
+
+    <motion.p
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+    >
+      Real-time updates on your shipments
+    </motion.p>
+
+    <TrackingSearch variant="standalone" />
+
+    <p className="tracking-help">
+      {trackingData.trackingHelp || ''}
+    </p>
+
+  </div>
+</section>
 
     {/* Services Section */}  
     <section id="services" className="services-section">  
