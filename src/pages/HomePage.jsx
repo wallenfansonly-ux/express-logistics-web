@@ -137,12 +137,13 @@ return (
     delay: 0.5
   }}
 />
-<div className="world-map">  
-  <svg  
-    viewBox="0 0 1200 600"  
-    className="world-svg"  
-    preserveAspectRatio="none"  
-  >  
+<div className="world-map">
+  <img 
+    src={assets.worldMap}
+    className="world-map-image"
+    alt="Global logistics network"
+  />
+</div>
     <path  
       d="M120 260 C280 120 470 120 620 250 S980 360 1120 180"  
       className="route route1"  
