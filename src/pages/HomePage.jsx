@@ -252,6 +252,11 @@ return (
         >  
           {stats.slice(0, 3).map((stat, index) => (  
             <div key={index} className="hero-stat">  
+              <div className="stat-icon">
+  {index === 0 && <FaGlobeAmericas />}
+  {index === 1 && <FaBox />}
+  {index === 2 && <FaCheck />}
+</div>
               <span className="hero-stat-value">  
                 <AnimatedCounter value={stat.value} suffix={stat.suffix} />  
               </span>  
