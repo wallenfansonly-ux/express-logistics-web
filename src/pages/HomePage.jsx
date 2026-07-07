@@ -173,12 +173,7 @@ return (
     ease: "linear",
   }}
 />
-
-</svg>
-</div>
-
-<div className="gradient-overlay"></div>
-
+    
 <div className="gradient-overlay"></div>  
             {/* Animated vehicles */}  
             <motion.div  
@@ -216,7 +211,7 @@ return (
 >
   Delivering Excellence Across the Globe.
 </motion.p>
-
+</motion.div>
         <motion.div  
           className="hero-search"  
           initial={{ opacity: 0, y: 20 }}  
