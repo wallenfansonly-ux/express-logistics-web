@@ -202,8 +202,14 @@ return (
           animate={{ opacity: 1, y: 0 }}  
           transition={{ duration: 0.8, delay: 0.2 }}  
         >  
-          <h1>
-  {heroTitle.split(' ').map((word, i) => (
+          <h1<h1 className="hero-brand">
+  <span className="brand-express">
+    Express
+  </span>{' '}
+  <span className="brand-logistics">
+    Logistics
+  </span>
+</h1>
     <motion.span
       key={i}
       initial={{ opacity: 0, y: 30 }}
@@ -223,7 +229,7 @@ return (
             animate={{ opacity: 1 }}  
             transition={{ duration: 0.8, delay: 0.8 }}  
           >  
-            {heroSubtitle || 
+            Delivering Excellence Across the Globe.
 "Fast, secure and reliable worldwide delivery solutions. Track your shipment anytime, anywhere."
 }
           </motion.p>  
