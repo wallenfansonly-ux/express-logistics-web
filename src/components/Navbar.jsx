@@ -56,7 +56,9 @@ const Navbar = () => {
           <NavLink to="/faq" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'} onClick={closeMenu}>
             {t.nav.faq}
           </NavLink>
-
+<a href="/track" className="nav-button">
+  Track Shipment
+</a>
           <div className="navbar-actions">
             <LanguageSwitcher />
             <ThemeToggle />
