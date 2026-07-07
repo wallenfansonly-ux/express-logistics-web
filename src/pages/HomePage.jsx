@@ -173,12 +173,8 @@ return (
     ease: "linear",
   }}
 />
-      
-  </svg>  
-</div>  
 
 <div className="gradient-overlay"></div>  
-
             {/* Animated vehicles */}  
             <motion.div  
               className="plane animated"  
