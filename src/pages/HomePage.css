@@ -40,26 +40,101 @@
   z-index: 0;
 }
 
+/* Static World Map Background */
 .world-map-overlay {
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 500'%3E%3Cpath d='M150,200 Q250,100 400,150 T600,200 Q750,250 900,200' stroke='%233b82f6' stroke-width='1' fill='none' opacity='0.2'/%3E%3Cpath d='M100,280 Q200,200 350,250 T550,300 Q700,350 850,280' stroke='%233b82f6' stroke-width='1' fill='none' opacity='0.15'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 500'%3E%3Cpath d='M150,200 Q250,100 400,150 T600,200 Q750,250 900,200' stroke='%2338bdf8' stroke-width='1' fill='none' opacity='0.2'/%3E%3Cpath d='M100,280 Q200,200 350,250 T550,300 Q700,350 850,280' stroke='%2338bdf8' stroke-width='1' fill='none' opacity='0.15'/%3E%3C/svg%3E");
   background-size: cover;
   background-position: center;
   opacity: 0.3;
   animation: mapPulse 4s ease-in-out infinite;
 }
 
-@keyframes mapPulse {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.5; }
+
+/* Animated Route Map */
+.world-map {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.35;
+  z-index: 2;
 }
 
+.world-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.route {
+  fill: none;
+  stroke: #38bdf8;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 12;
+  animation: routeMove 8s linear infinite;
+  filter: drop-shadow(0 0 10px #38bdf8);
+}
+
+.route2 {
+  animation-duration: 10s;
+}
+
+.map-point {
+  fill: #38bdf8;
+  animation: pulsePoint 2s infinite;
+}
+
+
+@keyframes mapPulse {
+  0%,100% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+
+@keyframes routeMove {
+  from {
+    stroke-dashoffset: 120;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+
+@keyframes pulsePoint {
+  0%,100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.8);
+    opacity: 0.5;
+  }
+}
+
+
+/* Gradient Layer */
 .gradient-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.95) 0%, rgba(30, 64, 175, 0.9) 50%, rgba(29, 78, 216, 0.95) 100%);
+  z-index: 1;
+  background: linear-gradient(
+    135deg,
+    rgba(59,130,246,0.95) 0%,
+    rgba(30,64,175,0.9) 50%,
+    rgba(29,78,216,0.95) 100%
+  );
 }
+
 
 /* Animated Vehicles */
 .animated {
