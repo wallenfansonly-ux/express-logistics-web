@@ -187,42 +187,76 @@
   margin-right: auto;
 }
 
+/* Premium Hero Tracking Search */
+
 .hero-search {
   margin-bottom: var(--spacing-8);
+  position: relative;
+  z-index: 5;
 }
 
 .hero-search .tracking-search {
-  max-width: 500px;
+  max-width: 650px;
   margin: 0 auto;
+  padding: 8px;
+  border-radius: var(--radius-xl);
+  backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .hero-search .tracking-search input {
-  padding: var(--spacing-4) var(--spacing-6);
+  padding: var(--spacing-5) var(--spacing-6);
   font-size: var(--font-size-lg);
   border-radius: var(--radius-xl);
+  height: 60px;
 }
+
+.hero-search .tracking-search button {
+  height: 60px;
+  border-radius: var(--radius-xl);
+  font-weight: 700;
+  padding: 0 30px;
+}
+/* Premium Hero Stats Cards */
 
 .hero-stats {
   display: flex;
   justify-content: center;
   gap: var(--spacing-8);
+  flex-wrap: wrap;
+  margin-top: var(--spacing-8);
 }
 
 .hero-stat {
+  min-width: 150px;
+  padding: 22px 25px;
   text-align: center;
+
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(15px);
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+
+  transition: transform 0.3s ease;
+}
+
+.hero-stat:hover {
+  transform: translateY(-8px);
 }
 
 .hero-stat-value {
   display: block;
   font-size: var(--font-size-2xl);
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .hero-stat-label {
   font-size: var(--font-size-sm);
-  opacity: 0.8;
+  opacity: 0.85;
+  margin-top: 8px;
 }
-
 /* Scroll Indicator */
 .scroll-indicator {
   position: absolute;
@@ -310,6 +344,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: var(--spacing-6);
+  margin-top: var(--spacing-8);
 }
 
 .service-card {
@@ -318,9 +353,14 @@
   text-align: center;
   transition: all var(--transition-normal);
   cursor: pointer;
+
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .service-card:hover {
+  transform: translateY(-12px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
@@ -331,10 +371,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
   background: linear-gradient(135deg, var(--primary-500), var(--primary-700));
+
   border-radius: var(--radius-xl);
   font-size: var(--font-size-2xl);
   color: white;
+
   box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
 }
 
@@ -413,6 +456,16 @@
   padding: var(--spacing-8);
   text-align: center;
   transition: all var(--transition-normal);
+
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.why-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
 .why-card:hover {
@@ -465,6 +518,16 @@
   border-radius: var(--radius-xl);
   padding: var(--spacing-8);
   transition: all var(--transition-normal);
+
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .testimonial-card:hover {
@@ -662,5 +725,165 @@
 @media (max-width: 640px) {
   .cta-content {
     padding: var(--spacing-8);
+  }
+}
+/* ==============================
+   Premium Logistics Hero Upgrade
+   ============================== */
+
+.hero-full {
+  position: relative;
+  overflow: hidden;
+  min-height: 90vh;
+}
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.world-map {
+  position: absolute;
+  inset: 0;
+  opacity: 0.35;
+}
+
+.world-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.hero-plane {
+  position: absolute;
+  width: 280px;
+  top: 15%;
+  left: 10%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-truck {
+  position: absolute;
+  width: 320px;
+  bottom: 8%;
+  right: 8%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.gradient-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+}
+
+.hero-text h1 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.hero-text h1 span {
+  display: inline-block;
+}
+
+.highlight-word {
+  color: #ffcc00;
+}
+
+.hero-text p {
+  max-width: 600px;
+  font-size: 1.2rem;
+  }
+/* ==========================
+   Mobile Responsive Upgrade
+   ========================== */
+
+@media (max-width: 900px) {
+
+  .hero-full {
+    min-height: auto;
+    padding-bottom: 80px;
+  }
+
+  .hero-plane {
+    width: 150px;
+    top: 8%;
+    left: 5%;
+    opacity: 0.7;
+  }
+
+  .hero-truck {
+    width: 180px;
+    bottom: 5%;
+    right: 2%;
+    opacity: 0.7;
+  }
+
+  .hero-content {
+    padding: 20px;
+  }
+
+  .hero-stats {
+    gap: 15px;
+  }
+
+  .hero-stat {
+    min-width: 130px;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .hero-plane {
+    width: 110px;
+  }
+
+  .hero-truck {
+    width: 140px;
+  }
+
+  .hero-text h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+
+  .hero-search .tracking-search {
+    width: 100%;
+  }
+
+  .hero-stats {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-stat {
+    width: 90%;
+  }
+
+  .services-grid,
+  .why-grid,
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card,
+  .why-card,
+  .testimonial-card {
+    padding: var(--spacing-6);
   }
 }
