@@ -1,114 +1,73 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { FaShippingFast, FaEnvelope, FaLock } from 'react-icons/fa';
-import { useLanguage } from '../../context';
-import { loginUser } from '../../firebase/auth';
-import './AdminLoginPage.css';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../firebaseConfig';
 
-const AdminLoginPage = () => {
-  const { t } = useLanguage();
-  const navigate = useNavigate();
+const AdminLogin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState({ loading: false, error: '' });
 
-  const handleSubmit = async (e) => {
-  e.preventDefault();
-  setError('');
-  setLoading(true);
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setStatus({ loading: true, error: '' });
 
-  try {
-    const result = await loginUser(email.trim(), password);
-
-    console.log('Login Result:', result);
-
-    if (result.success) {
-      navigate('/admin');
-    } else {
-      setError(result.error || 'Login failed.');
+    try {
+      // Manual attempt: Type this in manually on your phone to avoid autofill issues
+      const userCredential = await signInWithEmailAndPassword(auth, email.trim(), password);
+      
+      console.log("Login successful:", userCredential.user.uid);
+      window.location.href = '/admin/dashboard';
+    } catch (err) {
+      // Log the full error to the console for debugging
+      console.error("Full Firebase Error:", err);
+      
+      // Provide user-friendly feedback
+      let message = "An error occurred. Please try again.";
+      if (err.code === 'auth/invalid-credential' || err.code === 'auth/wrong-password') {
+        message = "Incorrect email or password.";
+      } else if (err.code === 'auth/user-not-found') {
+        message = "No account found with this email.";
+      }
+      setStatus({ loading: false, error: message });
     }
-  } catch (err) {
-    console.error('Login Error:', err);
-    setError(err.message || 'An unexpected error occurred.');
-  } finally {
-    setLoading(false);
-  }
-};
-
-    const result = await loginUser(email, password);
-
-    if (result.success) {
-      navigate('/admin');
-    } else {
-      setError(t.auth.loginError);
-    }
-    setLoading(false);
-  };
-
-  // Demo login
-  const handleDemoLogin = () => {
-    setEmail('admin@example.com');
-    setPassword('demo123');
   };
 
   return (
-    <div className="admin-login-page">
-      <div className="login-container">
-        <div className="login-header">
-          <FaShippingFast className="login-logo" />
-          <h1>Express Logistics</h1>
-          <p>{t.nav.login}</p>
+    <div style={{ maxWidth: '400px', margin: '20px auto', padding: '20px' }}>
+      <h2>Admin Login</h2>
+      <form onSubmit={handleLogin}>
+        <div style={{ marginBottom: '15px' }}>
+          <input
+            type="email"
+            placeholder="Admin Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            style={{ width: '100%', padding: '10px' }}
+            required
+          />
         </div>
-
-        <form className="login-form" onSubmit={handleSubmit}>
-          {error && <div className="login-error">{error}</div>}
-
-          <div className="form-group">
-            <label htmlFor="email">{t.auth.email}</label>
-            <div className="input-wrapper">
-              <FaEnvelope className="input-icon" />
-              <input
-                type="email"
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="admin@example.com"
-                required
-              />
-            </div>
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="password">{t.auth.password}</label>
-            <div className="input-wrapper">
-              <FaLock className="input-icon" />
-              <input
-                type="password"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="********"
-                required
-              />
-            </div>
-          </div>
-
-          <button type="submit" className="btn btn-primary btn-block" disabled={loading}>
-            {loading ? t.common.loading : t.auth.loginButton}
-          </button>
-
-          <button type="button" className="btn btn-outline btn-block demo-btn" onClick={handleDemoLogin}>
-            Use Demo Credentials
-          </button>
-        </form>
-
-        <p className="login-footer">
-          Need help? Contact system administrator
+        <div style={{ marginBottom: '15px' }}>
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            style={{ width: '100%', padding: '10px' }}
+            required
+          />
+        </div>
+        <button type="submit" disabled={status.loading} style={{ width: '100%', padding: '10px' }}>
+          {status.loading ? 'Authenticating...' : 'Login'}
+        </button>
+      </form>
+      
+      {status.error && (
+        <p style={{ color: 'red', marginTop: '10px', fontWeight: 'bold' }}>
+          {status.error}
         </p>
-      </div>
+      )}
     </div>
   );
 };
 
-export default AdminLoginPage;
+export default AdminLogin;
