@@ -21,6 +21,9 @@ const TrackingSearch = ({ variant = 'hero' }) => {
       <form onSubmit={handleSubmit} className="tracking-form">
         <div className="search-input-wrapper">
           <FaSearch className="search-icon" />
+          <div className="tracking-box-icon">
+  📦
+</div>
           <input
             type="text"
             className="search-input"
