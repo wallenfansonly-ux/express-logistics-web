@@ -277,7 +277,7 @@ return (
     </section>  
 
     {/* Tracking Section */}  
-    <section className="tracking-section glass-section" ref={trackRef}>  
+    <section className="tracking-section" ref={trackRef}> 
       <div className="container">  
         <motion.h2  
           initial={{ opacity: 0, y: 20 }}  
@@ -285,15 +285,16 @@ return (
           viewport={{ once: true }}  
           transition={{ duration: 0.5 }}  
         >  
-          {trackingData.title || ''}  
-        </motion.h2>  
-        <motion.p  
-          initial={{ opacity: 0 }}  
-          whileInView={{ opacity: 1 }}  
-          viewport={{ once: true }}  
-          transition={{ duration: 0.5, delay: 0.1 }}  
-        >  
-          {trackingData.subtitle || ''}  
+          {<div className="tracking-title">
+  <span></span>
+
+  <h2>
+    Track Your Shipment
+  </h2>
+
+  <span></span>
+</div>
+          Real-time updates on your shipments
         </motion.p>  
         <TrackingSearch variant="standalone" />  
         <p className="tracking-help">{trackingData.trackingHelp || ''}</p>  
