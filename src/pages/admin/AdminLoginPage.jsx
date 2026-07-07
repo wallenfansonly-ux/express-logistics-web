@@ -1,49 +1,35 @@
-import { useState } from 'react';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebaseConfig';
+import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
 const AdminLogin = () => {
-  const [email, setEmail] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const navigate = useNavigate();
+  const auth = getAuth();
 
-  // Set your desired password here
-  const HARDCODED_PASSWORD = 'Da123**##'; 
-
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setError('');
-
+  const handleAdminLogin = async () => {
+    const provider = new GoogleAuthProvider();
     try {
-      await signInWithEmailAndPassword(auth, email.trim(), HARDCODED_PASSWORD);
-      window.location.href = '/admin/dashboard';
-    } catch (err) {
-      setError('Login failed. Ensure the email is correct and the user exists.');
-      console.error("Login Error:", err);
-    } finally {
-      setLoading(false);
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+
+      // Restrict access to ONLY your email
+      if (user.email === 'davidibangaa@gmail.com') {
+        navigate('/admin/dashboard');
+      } else {
+        alert("Access Denied: You are not the authorized admin.");
+        auth.signOut(); // Log out immediately if it's not you
+      }
+    } catch (error) {
+      console.error("Login Error:", error);
     }
   };
 
   return (
-    <div style={{ maxWidth: '400px', margin: '50px auto', padding: '20px' }}>
-      <h2>Admin Access</h2>
-      <form onSubmit={handleLogin}>
-        <input
-          type="email"
-          placeholder="Admin Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          style={{ width: '100%', padding: '10px', marginBottom: '15px' }}
-          required
-        />
-        <button type="submit" disabled={loading} style={{ width: '100%', padding: '10px' }}>
-          {loading ? 'Entering...' : 'Enter Dashboard'}
-        </button>
-      </form>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-    </div>
+    <button 
+      onClick={handleAdminLogin}
+      className="bg-blue-600 text-white px-8 py-3 rounded-lg font-bold shadow-lg"
+    >
+      Login as Admin
+    </button>
   );
 };
 
