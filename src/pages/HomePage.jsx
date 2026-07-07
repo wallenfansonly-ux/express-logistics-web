@@ -515,6 +515,43 @@ return (
       </div>  
     </section>  
   </div>  
+  <footer className="footer">
+  <div className="container footer-grid">
+
+    <div>
+      <h3>Express Logistics</h3>
+      <p>
+        Fast, secure and reliable worldwide delivery solutions.
+      </p>
+    </div>
+
+    <div>
+      <h4>Services</h4>
+      <p>Express Delivery</p>
+      <p>International Shipping</p>
+      <p>Warehousing</p>
+    </div>
+
+    <div>
+      <h4>Company</h4>
+      <p>About Us</p>
+      <p>Contact</p>
+      <p>Track Shipment</p>
+    </div>
+
+    <div>
+      <h4>Support</h4>
+      <p>Help Center</p>
+      <p>Customer Support</p>
+      <p>Shipping Guide</p>
+    </div>
+
+  </div>
+
+  <div className="footer-bottom">
+    © {new Date().getFullYear()} Express Logistics. All rights reserved.
+  </div>
+</footer>
 </PageTransition>
 
 );
